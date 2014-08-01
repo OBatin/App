@@ -29,13 +29,13 @@ class App implements AppInterface
     {
         //init new model
         $appModel = new $model;
-
+        $cache = NULL;
         // check instance
         if (!$appModel instanceof \App\AppInterface) {
             throw new \Exception('You model must implement \App\AppInterface');
         }
 
-        return $appModel;
+        return new Model\AppModel($appModel, $cache, $this->_config);
     }
 
     /**

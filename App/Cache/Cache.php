@@ -12,7 +12,7 @@ interface Cache
 
     /**
      * @param $key string
-     * @param $value
+     * @param $value string
      * @return mixed
      */
     public function set($key, $value);

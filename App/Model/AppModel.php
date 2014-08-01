@@ -14,16 +14,23 @@ class AppModel implements ModelInterface
         if (!isset($model)) {
             throw new \Exception('Model not set.');
         }
+        // Set model
         $this->_model = $model;
 
+        if (!isset($config)) {
+            throw new \Exception('Config not set.');
+        }
+        // Set config
         $this->_config = $config;
     }
 
-    public function saveData($appData)
-    {
-        
-    }
-
+    /**
+     * Get application by ids(array)
+     * 
+     * @param array $ids
+     * 
+     * @return array Apps
+     */
     public function getAppsByIds(array $ids)
     {
         $apps = array();
@@ -48,10 +55,24 @@ class AppModel implements ModelInterface
         return $apps;
     }
 
+    /**
+     * Get unique application by Aplle id
+     * 
+     * @param int $id Application id
+     * 
+     * @return EPF/STORAGE model object with data
+     */
     public function getAppById($id)
     {
+        // Get application data
         $app = $this->_model->getAppById($id);
         return $app;
+    }
+
+    public function saveData($appData)
+    {
+        // Save application data to STORAGE
+        // Invoke methods for each Active record table
     }
 
     private function _saveApplication($appData)
@@ -106,4 +127,5 @@ class AppModel implements ModelInterface
         // upload app image to APP STORAGE folder
         // return new name
     }
+
 }
