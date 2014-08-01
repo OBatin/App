@@ -6,21 +6,20 @@ interface AppInterface
 {
 
     /**
-     * Get app model
+     * Init new model
      * 
-     * @return  object
+     * @param str model name
+     * 
+     * @return model object
      */
     public function getAppModel($model);
 
     /**
      * Get application data
      * 
-     * @param application id
+     * @param int application id
      * 
-     * @return array data
+     * @return application data
      */
     public function getData($appId);
-    
-
-
 }
