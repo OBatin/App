@@ -15,24 +15,25 @@ class App implements AppInterface
         $this->_config = $config;
     }
 
-    public function getAppModel()
+    public function getAppModel($model)
     {
-        // get App model using current $this->_config
-        $appModel = new $this->_config['model'];
-
+        $appModel = new $model;
         $cache = null;
 //        $cache = $this->getCache();
 
         if (!$appModel instanceof \App\AppInterface) {
             throw new \Exception('You model must implement \App\AppInterface');
         }
-
-        return new Model\AppModel($appModel, $cache, $this->_config);
+        return $appModel;
     }
 
     public function getData($appId)
     {
-        return $this->getAppModel()->getAppById($appId);
+        $app = $this->getAppModel($this->_config['epfModel'])->getAppById($appId);
+        if(empty($app)){
+            $app = $this->getAppModel($this->_config['storageModel'])->getAppById($appId);
+        };
+        return $app;
     }
 
 }

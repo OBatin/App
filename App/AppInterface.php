@@ -10,7 +10,7 @@ interface AppInterface
      * 
      * @return  object
      */
-    public function getAppModel();
+    public function getAppModel($model);
 
     /**
      * Get application data
