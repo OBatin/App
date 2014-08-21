@@ -22,4 +22,13 @@ interface AppInterface
      * @return application data
      */
     public function getData($appId);
+    
+    /**
+     * Save application data to storage tables
+     * 
+     * @param array $data Application data
+     * 
+     * @return bulean Success
+     */
+    public function saveData($data);
 }

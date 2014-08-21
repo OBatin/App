@@ -69,42 +69,18 @@ class AppModel implements ModelInterface
         return $app;
     }
 
+    /**
+     * Save Application data to tables
+     * 
+     * @param array $appData
+     * @return bolean true
+     */
     public function saveData($appData)
     {
-        // Save application data to STORAGE
-        // Invoke methods for each Active record table
+        $app = $this->_model->saveData($appData);
+        return $app;
     }
-
-    private function _saveApplication($appData)
-    {
-        // build Application data array
-        // save to STORAGE
-    }
-
-    private function _saveApplicationDetail($appData)
-    {
-        // build Application Detail data array
-        // save to STORAGE
-    }
-
-    private function _saveApplicationDeviceType($appData)
-    {
-        // build Application Device Type data array
-        // save to STORAGE
-    }
-
-    private function _saveArtistApplication($appData)
-    {
-        // build Artist Application data array
-        // save to STORAGE
-    }
-
-    private function _saveGenreApplication($appData)
-    {
-        // build application data array
-        // save to STORAGE
-    }
-
+   
     private function _saveAppImage($appData)
     {
         // check if different image available

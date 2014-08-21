@@ -52,10 +52,29 @@ class App implements AppInterface
 
         // check for need getting app from STORAGE
         if (empty($app)) {
-            $app = $this->getAppModel($this->_config['storageModel'])->getAppById($appId);
+            $app = $this->getAppModel($this->_config['storageModels']['application'])->getAppById($appId);
         }
 
         return $app;
     }
 
+    
+    /**
+     * Save application data to storage tables
+     * 
+     * @param array application data
+     * 
+     * @return bulean Success
+     */
+    public function saveData($data)
+    {
+        // set and save application data
+        if (empty($data)) {
+            foreach ($this->_config['storageModels'] as $model) {
+                 $app = $this->getAppModel($model)->saveData($data);
+            }
+        }
+
+        return $app;
+    }
 }
