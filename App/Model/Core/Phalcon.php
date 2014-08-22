@@ -2,7 +2,7 @@
 
 namespace App\Model\Core;
 
-class Phalcon
+trait Phalcon
 {
 
     /**
