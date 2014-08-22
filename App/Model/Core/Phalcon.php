@@ -12,21 +12,21 @@ trait Phalcon
      * 
      * @return phalcon success
      */
-    public function SaveData($data)
+    public function SaveData($appData)
     {
         $result = FALSE;
         // check if application id exist
-        if (!empty($data['application_id'])) {
+        if (!empty($appData['application_id'])) {
 
             //get data by primary key
-            $application = $this->findFirst($data['application_id']);
+            $application = $this->findFirst($appData['application_id']);
 
             //check for update or create new            
             if (!empty($application)) {
-                $result = $application->save($data);
+                $result = $application->save($appData);
             } else {
                 $application = new $this();
-                $result = $application->save($data);
+                $result = $application->save($appData);
             }
         }
 

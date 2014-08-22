@@ -30,5 +30,5 @@ interface AppInterface
      * 
      * @return bulean Success
      */
-    public function saveData($data);
+    public function saveApp($data);
 }

@@ -66,11 +66,12 @@ class App implements AppInterface
      * 
      * @return bulean Success
      */
-    public function saveData($data)
+    public function saveApp($data)
     {
         $app = FALSE;
+
         // set and save application data
-        if (empty($data)) {
+        if (!empty($data)) {
             foreach ($this->_config['storageModels'] as $model) {
                  $app = $this->getAppModel($model)->saveData($data);
             }
