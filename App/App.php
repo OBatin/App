@@ -68,6 +68,7 @@ class App implements AppInterface
      */
     public function saveData($data)
     {
+        $app = FALSE;
         // set and save application data
         if (empty($data)) {
             foreach ($this->_config['storageModels'] as $model) {

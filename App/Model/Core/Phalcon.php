@@ -25,7 +25,7 @@ class Phalcon
             if (!empty($application)) {
                 $result = $application->save($data);
             } else {
-                $application = new $this;
+                $application = new $this();
                 $result = $application->save($data);
             }
         }
